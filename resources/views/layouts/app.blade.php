@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>JZ Implementos - Controle de Estoque</title>
+        <title>ITBrazil - Controle de Estoque</title>
 
         <!-- Fonts -->
         <link rel="stylesheet" href="{{ url('/css/font-awesome.min.css') }}">
@@ -26,11 +26,10 @@
         <!-- JavaScripts -->
         <script src="{{ url('/js/jquery-2.2.3.min.js') }}"></script>
         <script src="{{ url('/js/bootstrap.min.js') }}"></script>
-        {{-- <script src="{{ elixir('js/app.js') }}"></script> --}}
 </head>
 <body id="app-layout">
     <nav class="navbar navbar-default navbar-static-top">
-        <div class="container" style="height: 100px;">
+        <div class="container">
             <div class="navbar-header">
 
                 <!-- Collapsed Hamburger -->
@@ -42,9 +41,7 @@
                 </button>
 
                 <!-- Branding Image -->
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    <img src="{{ url('/images/logotipojz.jpg') }}" height="70">
-                </a>
+                <a class="navbar-brand" href="{{ url('/') }}">ITBrazil</a>
             </div>
 
             <div class="collapse navbar-collapse" id="app-navbar-collapse">
@@ -110,6 +107,6 @@
     </nav>
 
     @yield('content')
-    <footer style="text-align: center;"><img src="{{ url('/images/insighti.png') }}"></footer>
+    <footer style="text-align: center;"><a href="https://itbrazil.info" target="_blank">https://itbrazil.info</a></footer>
 </body>
 </html>

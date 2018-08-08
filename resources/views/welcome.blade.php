@@ -8,7 +8,9 @@
                 <div class="panel-heading">Controle de Estoque</div>
 
                 <div class="panel-body">
-                    Bem-vindo ao sistema de controle de estoque Insighti Tecnologia & Negócios.
+                    <p>Bem-vindo ao sistema de controle de estoque da ITBrazil.</p>
+                    <p>Usuário: admin<br>
+                    Senha: 123456</p>
                 </div>
             </div>
         </div>

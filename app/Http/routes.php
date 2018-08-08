@@ -71,13 +71,13 @@ Route::group(['prefix' => '/home'], function () {
     Route::get('/unidade/{id}/del', 'UnidadeController@apaga');
 
     // Rotas dos usuarios
-    Route::get('/usuarios', 'UsuarioController@lista');
+    Route::get('/usuarios', 'UsuarioController@lista')->name('usuarios');
     Route::get('/usuario/novo', 'UsuarioController@novo');
     Route::post('/usuario/novo', 'UsuarioController@grava');
     Route::get('/usuario/{id}', 'UsuarioController@edita');
     Route::post('/usuario/{id}', 'UsuarioController@atualiza');
     Route::get('/usuario/{id}/del', 'UsuarioController@apaga');
-    Route::get('/perfil', 'UsuarioController@perfil');
+    Route::get('/perfil', 'UsuarioController@perfil')->name('perfil');
 
     // Movimentação do estoque
     Route::get('/entrada', 'MovimentoController@entrada');

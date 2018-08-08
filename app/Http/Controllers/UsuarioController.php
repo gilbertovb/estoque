@@ -105,12 +105,20 @@ class UsuarioController extends Controller {
         if ($dados['password'] != '')
             $usuario->password = bcrypt($dados['password']);
 
-        $usuario->save();
-
         if ($origem === '/home/perfil') {
-            return redirect('/home/perfil')->withErrors(array('mensagem' => 'Perfil alterado com sucesso.'));
+            if ($id == 1) {
+                return redirect()->route('perfil')->withErrors(array('mensagem' => 'Usuário admin não pode ser alterado.'));
+            }else{
+                $usuario->save();
+                return redirect('/home/perfil')->withErrors(array('mensagem' => 'Perfil alterado com sucesso.'));
+            }
         } else {
-            return redirect('/home/usuarios')->withErrors(array('mensagem' => 'Usuário <strong>' . $dados['name'] . '</strong> alterado com sucesso.'));
+            if ($id == 1) {
+                return redirect()->route('usuarios')->withErrors(array('mensagem' => 'Usuário admin não pode ser alterado.'));
+            }else{
+                $usuario->save();
+                return redirect('/home/usuarios')->withErrors(array('mensagem' => 'Usuário <strong>' . $dados['name'] . '</strong> alterado com sucesso.'));
+            }
         }
     }
 
@@ -122,6 +130,10 @@ class UsuarioController extends Controller {
             $usuarios = \App\User::orderBy('name', 'ASC')->get();
 
             return redirect('/home/usuarios')->withErrors(array('mensagem' => 'Não é possível apagar o <strong>próprio</strong> usuário .'));
+        } elseif ($usuario->id == 1) {
+            $usuarios = \App\User::orderBy('name', 'ASC')->get();
+
+            return redirect('/home/usuarios')->withErrors(array('mensagem' => 'Não é possível apagar o usuário admin.'));
         } elseif ($usuario->movimentos->isEmpty()) {
             $usuario->delete();
 
